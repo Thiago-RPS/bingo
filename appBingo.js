@@ -7,7 +7,7 @@ const ejs = require("ejs")
 app.use( express.static( "templates" ) );
 app.all("/",(req,res)=>{
     console.log(__dirname)
-    ejs.renderFile(__dirname+"//templates/bingo_user.html",[],
+    ejs.renderFile(__dirname+"/templates/bingo_user.html",[],
     (err, site)=>{
         res.status=200
         res.send(site)
@@ -17,9 +17,9 @@ app.all("/",(req,res)=>{
 
 app.all("/admin",(req,res)=>{
     
-    ejs.renderFile(__dirname+"//templates/bingo.html",[],
+    ejs.renderFile(__dirname+"/templates/bingo.html",[],
     (err, site)=>{
-        console.log(site)
+        console.log(__dirname+"/templates/bingo.html")
         res.status=200
         res.send(site)
     })
