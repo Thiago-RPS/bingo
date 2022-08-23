@@ -16,9 +16,10 @@ app.all("/",(req,res)=>{
 
 
 app.all("/admin",(req,res)=>{
-    console.log(__dirname)
+    
     ejs.renderFile(__dirname+"//templates/bingo.html",[],
     (err, site)=>{
+        console.log(site)
         res.status=200
         res.send(site)
     })
