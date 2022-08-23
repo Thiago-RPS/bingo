@@ -19,7 +19,7 @@ app.all("/admin",(req,res)=>{
     
     ejs.renderFile(__dirname+"/templates/bingo.html",[],
     (err, site)=>{
-        console.log(__dirname+"/templates/bingo.html")
+        console.log(site)
         res.status=200
         res.send(site)
     })
