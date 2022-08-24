@@ -3,26 +3,21 @@ const app = express();
 const server = require('http').createServer(app)
 const io = require('socket.io')(server);
 const ejs = require("ejs")
-
+app.set('view engine', 'ejs');
+app.set('views', './templates');
 app.use( express.static( "templates" ) );
+
+
 app.all("/",(req,res)=>{
-    console.log(__dirname)
-    ejs.renderFile(__dirname+"//templates/bingo_user.html",[],
-    (err, site)=>{
-        res.status=200
-        res.send(site)
-    })
+    res.status=200
+    res.render('Bingo_user')
+    
 })
 
 
 app.all("/admin",(req,res)=>{
-    
-    ejs.renderFile(__dirname+"//templates/bingo.html",[],
-    (err, site)=>{
-        console.log(err)
-        res.status=200
-        res.send(site)
-    })
+    res.status=200
+    res.render('Bingo')
 })
 var numbers = []
 io.on("connection",(socket)=>{
