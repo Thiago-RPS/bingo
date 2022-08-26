@@ -37,6 +37,6 @@ io.on("connection",(socket)=>{
         io.emit("refresh",[])
     })
 })
-server.listen(21017,function(){
-    console.log("servidor rodando na porta 21017")
+server.listen(21275,function(){
+    console.log("servidor rodando na porta 21275")
 })
