@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 
@@ -26,7 +25,7 @@
 		#HeaderBingo {
 			display: flex;
 			flex-direction: row;
-			background-color: #690297;
+			background-color: #f37321;
 			box-shadow: 1px 0 5px black;
 			border-radius: 10px;
 		}
@@ -40,20 +39,28 @@
 			font-family: friz-quadrata;
 			color: white;
 			text-shadow: inset 1px 1px 1px white;
-			color: #810F84;
+			color: #252525;
 			font-size: 50px;
 		}
 
 		.title::before {
 			content: '';
-			background-image: url("logo.png");
+			background-image: url(logo.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 100px;
+			height: 74px;
+			display: inline-block
+		}
+		.title::after {
+			content: '';
+			background-image: url(logoFr.png);
 			background-size: cover;
 			background-repeat: no-repeat;
-			width: 90px;
-			height: 50px;
+			width: 126px;
+			height: 73px;
 			display: inline-block;
 		}
-
 		.B,
 		.header {
 			max-width: 90px;
@@ -138,30 +145,30 @@
 					contador += 1
 				}
 			}
-			
+
 			var socket = io()
-            
-			socket.on("Connect",(numbers)=>{
+
+			socket.on("Connect", (numbers) => {
 				console.log(numbers)
 				numbers.forEach(number => {
-					try{
-						document.getElementById("item" + number).className = 'select'	
-					}catch(e){
+					try {
+						document.getElementById("item" + number).className = 'select'
+					} catch (e) {
 
 					}
-					
+
 				});
-				
+
 			})
-			
+
 			socket.on("setNumber", (number) => {
-				document.getElementById("addNumber").value=number
-                document.getElementById("item" + number).className = 'select'
+				document.getElementById("addNumber").value = number
+				document.getElementById("item" + number).className = 'select'
 			})
-            socket.on("removeNumber", (number) => {
-                document.getElementById("item" + number).className=""
+			socket.on("removeNumber", (number) => {
+				document.getElementById("item" + number).className = ""
 			})
-            socket.on("refresh",function(){window.location.reload()})
+			socket.on("refresh", function () { window.location.reload() })
 		}
 	</script>
 </head>
@@ -174,7 +181,7 @@
 			<div style="display:flex;justify-content: space-between;margin-bottom: 10px">
 
 				<div class="title">
-					Bingo RM
+					Bingo
 				</div>
 				<input type=number id=addNumber disabled=true>
 			</div>
