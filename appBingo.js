@@ -8,7 +8,7 @@ app.set('views', './templates');
 app.use( express.static( "templates" ) );
 
 
-app.all("/",(req,res)=>{
+app.all("/User",(req,res)=>{
     res.status=200
     res.render('Bingo_user')
     
